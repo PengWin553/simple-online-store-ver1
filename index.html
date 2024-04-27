@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prelim - CRUD with AJAX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <h1>Online Store</h1>
+    <button class="button create-button" id="create-button" data-bs-toggle="modal" data-bs-target="#create-modal">Add Item</button>
+    <button class="button create-category-button" id="create-category-button" data-bs-toggle="modal" data-bs-target="#create-category-modal">Add Category</button>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="row">
+
+        <template id="card-template">
+            <div class="card">
+                <img src="" class="product-image" alt="Product Image" id="product-image">
+                <div class="card-body">
+                    <input type="hidden" class="product-id" value=""> 
+                    <h5 class="product-name"></h5>
+                    <p class="product-id"></p>
+                    <p class="product-category"></p>
+                    <p class="product-category-name"></p>
+                    <p class="product-quantity"></p>
+                    <div class="button-group">
+                        <button class="button update-button" id="update-button" data-bs-toggle="modal" data-bs-target="#update-modal">Edit</button>
+                        <button class="button delete-button">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- MODALS ----------------------------------- -->
+
+    <!-- Create Modal -->
+    <div class="modal fade" id="create-modal" tabindex="-1" aria-labelledby="create-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"> 
+                <h1 class="modal-title fs-5" id="create-modal-label">Add Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="newProductForm" enctype="multipart/form-data">
+                    <input type="number" name="productId" id="productId" hidden>
+                    <img src="default images/placeholder for item.png" class="product-image" alt="Product Image" id="product-image-display" width="100%">
+                    <!-- <label for="productImage">Product Image</label> -->
+                    <input type="file" name="productImage" id="productImage" class="form-control" accept=".jpg, .jpeg, .png" value="">
+                    <label for="productName">Product name</label>
+                    <input type="text" name="productName" id="productName" class="form-control"> 
+                    <label for="productCategory">Product category</label>
+                    <select name="productCategory" id="productCategory" class="form-control">
+                        <!-- Options will be dynamically added here -->
+                    </select>
+                    <label for="productQuantity">Product quantity</label>
+                    <input type="number" name="productQuantity" id="productQuantity" class="form-control">
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary1" id="btnAdd">Add Item</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Create Category Modal -->
+     <div class="modal fade" id="create-category-modal" tabindex="-1" aria-labelledby="create-category-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> 
+                    <h1 class="modal-title fs-5" id="create-category-modal-label">Add Category</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="newProductCategoryForm">
+                        <label for="productCategoryName">Product category name</label>
+                        <input type="text" name="productCategoryName" id="productCategoryName" class="form-control">
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary1" id="btnAddCategory">Add Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="update-modal" tabindex="-1" aria-labelledby="update-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> 
+                    <h1 class="modal-title fs-5" id="update-modal-label">Edit Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="updateProductForm" enctype="multipart/form-data">
+
+                        <center>
+                            <img src="" class="productImage productImageUpdateDisplay" alt="Product Image" id="productImage" width="100%">
+                        </center> <br>
+                        <input type="hidden" id="updateProductId">
+                        <input type="file" name="updateProductImage" id="updateProductImage" class="form-control" accept=".jpg, .jpeg, .png" value=""> <br>
+                        <p id="updateImageName"></p>
+                        <label for="updateProductName">Product name</label>
+                        <input type="text" name="updateProductName" id="updateProductName" class="form-control">
+                        <label for="updateProductCategory">Product category</label>
+                        <select name="updateProductCategory" id="updateProductCategory" class="form-control">
+                            <!-- Options will be dynamically added here -->
+                        </select>
+                        <label for="updateProductQuantity">Product quantity</label>
+                        <input type="number" name="updateProductQuantity" id="updateProductQuantity" class="form-control">
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary1" id="btnUpdate">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

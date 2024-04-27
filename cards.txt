@@ -1,0 +1,79 @@
+ <!-- <div class="col">
+          <div class="card">
+            <img src="./images/tuyu cult wallpaper.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Product name</h5>
+              <p class="card-text">Product category</p>
+              <p class="card-text">Product quantity</p>
+              
+              <div class="button-group">
+                <button class="button update-button">Edit</button>
+                <button class="button delete-button">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img src="./images/underkids_wallpaper.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Product name</h5>
+              <p class="card-text">Product quantitiy</p>
+              <p class="card-text">Product quantity</p>
+              
+              <div class="button-group">
+                <button class="button update-button">Edit</button>
+                <button class="button delete-button">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+              <img src="./images/overcast skies wallpaper.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Product name</h5>
+                <p class="card-text">Product category</p>
+                <p class="card-text">Product quantity</p>
+              
+                <div class="button-group">
+                    <button class="button update-button">Edit</button>
+                    <button class="button delete-button">Delete</button>
+                </div>
+              </div>
+            </div>
+        </div>
+  
+        <div class="col">
+            <div class="card">
+              <img src="./images/tuyu cult wallpaper.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Product name</h5>
+                <p class="card-text">Product category</p>
+                <p class="card-text">Product quantity</p>
+
+                <div class="button-group">
+                    <button class="button update-button">Edit</button>
+                    <button class="button delete-button">Delete</button>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        <div class="col">
+            <div class="card">
+              <img src="./images/underkids_wallpaper.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Product name</h5>
+                <p class="card-text">Product category</p>
+                <p class="card-text">Product quantity</p>
+
+                <div class="button-group">
+                    <button class="button update-button">Edit</button>
+                    <button class="button delete-button">Delete</button>
+                </div>
+              </div>
+            </div>
+        </div> -->
